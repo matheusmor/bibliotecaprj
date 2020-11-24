@@ -1,11 +1,14 @@
 package sistema.dados;
 
+import java.security.Principal;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
 
 import sistema.modelos.Aluno;
 /**
@@ -53,8 +56,20 @@ public class AlunoDados {
 
 	public List<Aluno> buscaPorNome(String nome) throws SQLException {
 		
-		throw new UnsupportedOperationException("Não implementado ainda!");
+		Statement stmt = conexao.createStatement();
+		stmt.execute("SELECT alunos.nome FROM alunos where (nome) like('%" +nome+ "%')");
+		ResultSet rs = stmt.getResultSet();
+		List<Aluno> alunos = new ArrayList<>();
+		while (rs.next()) {
+			Aluno a = new Aluno();
+			a.setId(rs.getLong(1));
+			a.setNome(rs.getString(2));
+			a.setEmail(rs.getString(3));
+			alunos.add(a);
+		}
+		return alunos;
 	}
+	
 
 	public List<Aluno> buscaPorEmail(String email) throws SQLException {
 		throw new UnsupportedOperationException("Não implementado ainda!");
@@ -65,8 +80,16 @@ public class AlunoDados {
 	}
 
 	public void insere(Aluno a) throws SQLException {
-		throw new UnsupportedOperationException("Não implementado ainda!");
+		
 	}
+	public void insere(String nome, String email) throws SQLException {
+		Statement stmt = conexao.createStatement();;
+		
+		stmt.execute("INSERT INTO \"public\".\"alunos\" (\"nome\", \"email\") VALUES ('" + nome +  "','" + email +  "');");
+		
+		
+	}
+	
 
 	public void atualiza(Aluno a) throws SQLException {
 		throw new UnsupportedOperationException("Não implementado ainda!");
@@ -91,5 +114,6 @@ public class AlunoDados {
 		}
 		return alunos;
 	}
+
 	
 }

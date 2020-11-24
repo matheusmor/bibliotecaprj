@@ -7,7 +7,10 @@ import java.sql.SQLException;
 import javax.swing.UIManager;
 
 import sistema.controles.FabricaControles;
+import sistema.dados.AlunoDados;
+import sistema.dados.EmprestimoDados;
 import sistema.dados.FabricaDados;
+import sistema.dados.LivroDados;
 import sistema.telas.FabricaTelas;
 
 /**
@@ -28,8 +31,10 @@ public class Principal {
 		Connection conexao = abrirConexao();
 		FabricaDados fabricaDados = new FabricaDados(conexao);
 		FabricaTelas fabricaTelas = new FabricaTelas();
-		FabricaControles fabricaControles = new FabricaControles(fabricaDados, fabricaTelas);
-		
+		AlunoDados alunoDados = new AlunoDados(conexao);
+		LivroDados livroDados = new LivroDados(conexao);
+		EmprestimoDados empDados = new EmprestimoDados(conexao);
+		FabricaControles fabricaControles = new FabricaControles(fabricaDados, fabricaTelas, alunoDados, livroDados, empDados);
 		fabricaControles.getControleMenuPrincipal().mostra();
 	}
 	

@@ -8,13 +8,13 @@ import sistema.telas.TelaMenuPrincipal;
 /**
  * Classe responsável por adicionar comportamentos na tela e fazer sua lógica.
  * 
- * Faz uso de um ou mais objetos tela, que deve expor os principais componentes 
+ * Faz uso de um ou mais objetos tela, que deve expor os principais componentes
  * de tela.
  * 
- * Faz uso de um ou mais objetos dados, para recuperar informações nos cliques 
+ * Faz uso de um ou mais objetos dados, para recuperar informações nos cliques
  * de botão, e oara atualizar a tela, etc.
  * 
- * Todas esses objetos que são dependencias para esse controle funcionar devem 
+ * Todas esses objetos que são dependencias para esse controle funcionar devem
  * ser passados no construtor do objeto.
  * 
  * Esta classe controle deve lidar com telas, dados, modelos e outros controles,
@@ -26,23 +26,45 @@ import sistema.telas.TelaMenuPrincipal;
 public class MenuPrincipalControle {
 
 	TelaMenuPrincipal tela;
-		
-	public MenuPrincipalControle(TelaMenuPrincipal tela, ConsultaAlunosControle consultaAlunosControle) {		
+
+	public MenuPrincipalControle(TelaMenuPrincipal tela, ConsultaAlunosControle consultaAlunosControle,
+			AddAlunoControle addAlunocontrole, AddLivroControle addLivroControle, ConsultaLivrosControle consultaLivroControle,
+			ConsulEmprestimoControle consulEmpControle) {
 		this.tela = tela;
-		
+
 		this.tela.getSair().addActionListener((ActionEvent e) -> {
-			for (Frame f: Frame.getFrames()) {
+			for (Frame f : Frame.getFrames()) {
 				f.dispose();
 			}
 		});
-		
+
 		this.tela.getConsultarAlunos().addActionListener((ActionEvent e) -> {
 			consultaAlunosControle.mostra();
-		});		
-	}
+		});
+		this.tela.getAddAluno().addActionListener((ActionEvent e) -> {
+
+			addAlunocontrole.mostra();
+
+		});
+		this.tela.getMnuAdicionarLivros().addActionListener((ActionEvent e) -> {
+
+			addLivroControle.mostra();
+
+		});
+
+		this.tela.getMnuConsultarLivros().addActionListener((ActionEvent e) -> {
+			
+			consultaLivroControle.mostra();
+	});
+		this.tela.getMnuConsultarEmpDev().addActionListener((ActionEvent e) -> {
+			
+			consulEmpControle.mostra();
+	});
 	
+	}
+
 	public void mostra() {
-		this.tela.setVisible(true);		
+		this.tela.setVisible(true);
 	}
-	
+
 }

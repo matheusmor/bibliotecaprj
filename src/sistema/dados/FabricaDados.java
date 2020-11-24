@@ -13,11 +13,23 @@ import java.sql.Connection;
 public class FabricaDados {
 
 	private AlunoDados alunoDados;
-
+	private LivroDados livroDados;
+	private EmprestimoDados empDados;
 	public FabricaDados(Connection conexao) {		
+	
 		this.alunoDados = new AlunoDados(conexao);
+		this.livroDados = new LivroDados(conexao);
+		this.empDados = new EmprestimoDados(conexao);
 	}
 	
+	public EmprestimoDados getEmpDados() {
+		return empDados;
+	}
+
+	public LivroDados getLivroDados() {
+		return livroDados;
+	}
+
 	public AlunoDados getAlunoDados() {
 		return alunoDados;
 	}
