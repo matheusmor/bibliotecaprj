@@ -29,7 +29,7 @@ public class MenuPrincipalControle {
 
 	public MenuPrincipalControle(TelaMenuPrincipal tela, ConsultaAlunosControle consultaAlunosControle,
 			AddAlunoControle addAlunocontrole, AddLivroControle addLivroControle, ConsultaLivrosControle consultaLivroControle,
-			ConsulEmprestimoControle consulEmpControle) {
+			ConsulEmprestimoControle consulEmpControle, RealizarEmprestimoControle realizaEmprestimoControle, RealizarDevolucaoControle realizaDevolucaoControle) {
 		this.tela = tela;
 
 		this.tela.getSair().addActionListener((ActionEvent e) -> {
@@ -61,6 +61,18 @@ public class MenuPrincipalControle {
 			consulEmpControle.mostra();
 	});
 	
+	this.tela.getMnuRealizarEmprestimo().addActionListener((ActionEvent e) -> {
+			
+		realizaEmprestimoControle.mostra();
+	});
+	this.tela.getMnuRealizarDevolucao().addActionListener((ActionEvent e) ->{
+		
+		realizaDevolucaoControle.mostra();
+		
+	});
+		
+		
+		
 	}
 
 	public void mostra() {

@@ -34,8 +34,11 @@ public class Principal {
 		AlunoDados alunoDados = new AlunoDados(conexao);
 		LivroDados livroDados = new LivroDados(conexao);
 		EmprestimoDados empDados = new EmprestimoDados(conexao);
-		FabricaControles fabricaControles = new FabricaControles(fabricaDados, fabricaTelas, alunoDados, livroDados, empDados);
+		
+		
+		FabricaControles fabricaControles = new FabricaControles(fabricaDados, fabricaTelas, alunoDados, livroDados, empDados, empDados);
 		fabricaControles.getControleMenuPrincipal().mostra();
+		
 	}
 	
 }

@@ -1,5 +1,7 @@
 package sistema.telas;
 
+
+
 /**
  * Fábrica de telas.
  * 
@@ -14,6 +16,8 @@ public class FabricaTelas {
 	private TelaAddLivro telaAddLivro;
 	private TelaConsultaLivro telaConsultaLivro;
 	private TelaConsultaEmprestimo telaConsultaEmprestimo;
+	private TelaRealizarEmprestimo telaRealizarEmprestimo;
+	private TelaRealizarDevolucao telaRealizarDevolucao;
 	
 	public FabricaTelas() {
 		telaMenuPrincipal = new TelaMenuPrincipal();
@@ -22,8 +26,15 @@ public class FabricaTelas {
 		telaAddLivro = new TelaAddLivro();
 		telaConsultaLivro = new TelaConsultaLivro();
 		telaConsultaEmprestimo = new TelaConsultaEmprestimo();
+		telaRealizarEmprestimo = new TelaRealizarEmprestimo();
+		telaRealizarDevolucao = new TelaRealizarDevolucao();
+	
 	}
 	
+	public TelaRealizarDevolucao getTelaRealizarDevolucao() {
+		return telaRealizarDevolucao;
+	}
+
 	public TelaConsultaEmprestimo getTelaConsultaEmprestimo() {
 		return telaConsultaEmprestimo;
 	}
@@ -38,6 +49,10 @@ public class FabricaTelas {
 	
 	public TelaAddAluno getTelaAddAluno() {
 		return telaAddAluno;
+	}
+
+	public TelaRealizarEmprestimo getTelaRealizarEmprestimo() {
+		return telaRealizarEmprestimo;
 	}
 
 	public TelaConsultaLivro getTelaConsultaLivros() {

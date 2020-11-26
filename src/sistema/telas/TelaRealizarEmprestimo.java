@@ -10,25 +10,29 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class TelaAddLivro extends JFrame {
-	/**
-	 * 
-	 */
+
+
+public class TelaRealizarEmprestimo extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JTextField Tnome;
-	
+	private JTextField Tlivro;
 	private JButton cancelar;
-	private JButton salvar;
-
-	public TelaAddLivro() {
-
+	private JButton emprestar;
+	
+	public TelaRealizarEmprestimo() {
+	
+		
+		
 		JLabel nome = new JLabel("Nome");
 		Tnome = new JTextField(30);
+		
+		JLabel Livro = new JLabel("Livro");
+		Tlivro = new JTextField(30);
 
 	
 
 		cancelar = new JButton("cancelar");
-		salvar = new JButton("Salvar");
+		emprestar = new JButton("emprestar");
 
 		JPanel p1 = new JPanel();
 		p1.setLayout(new GridLayout(4, 2, 3, 3));
@@ -39,25 +43,30 @@ public class TelaAddLivro extends JFrame {
 		p2.setLayout(new FlowLayout(FlowLayout.RIGHT));
 		getContentPane().add(p2, BorderLayout.SOUTH);
 
-		setTitle("Novo Livro");
+		setTitle("Realizar Emprestimo");
 		setSize(420, 200);
 		
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
 
 		// jlabel
-
+		
 		p1.add(nome);
 		p1.add(Tnome);
-
+		p1.add(Livro);
+		p1.add(Tlivro);
 		// botoes
 
 		p2.add(cancelar);
-		p2.add(salvar);
+		p2.add(emprestar);
 
 		
 		
 		
+	}
+
+	public JTextField getTlivro() {
+		return Tlivro;
 	}
 
 	public JTextField getTnome() {
@@ -71,7 +80,7 @@ public class TelaAddLivro extends JFrame {
 	}
 
 	public JButton getSalvar() {
-		return salvar;
+		return emprestar;
 	}
 
 }

@@ -71,17 +71,7 @@ public class AlunoDados {
 	}
 	
 
-	public List<Aluno> buscaPorEmail(String email) throws SQLException {
-		throw new UnsupportedOperationException("Não implementado ainda!");
-	}
-
-	public Aluno pegaPorId(long id) throws SQLException {
-		throw new UnsupportedOperationException("Não implementado ainda!");
-	}
-
-	public void insere(Aluno a) throws SQLException {
-		
-	}
+	
 	public void insere(String nome, String email) throws SQLException {
 		Statement stmt = conexao.createStatement();;
 		
@@ -91,13 +81,7 @@ public class AlunoDados {
 	}
 	
 
-	public void atualiza(Aluno a) throws SQLException {
-		throw new UnsupportedOperationException("Não implementado ainda!");
-	}
-
-	public void apaga(Aluno a) throws SQLException {
-		throw new UnsupportedOperationException("Não implementado ainda!");
-	}
+	
 	
 	
 	public List<Aluno> todosPendentes() throws SQLException {

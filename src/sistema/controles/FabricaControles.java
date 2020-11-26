@@ -28,16 +28,20 @@ public class FabricaControles {
 	private AddLivroControle addLivro;
 	private ConsultaLivrosControle consultaLivroControle;
 	private ConsulEmprestimoControle consulEmprestimoControle;
+	private RealizarEmprestimoControle realizaEmprestimoControle;
+	private RealizarDevolucaoControle realizaDevolucaoControle;
 	
-	public FabricaControles(FabricaDados fabricaDados, FabricaTelas fabricaTelas, AlunoDados alunoDados, LivroDados livroDados, EmprestimoDados empDados) throws SQLException {
+	public FabricaControles(FabricaDados fabricaDados, FabricaTelas fabricaTelas, AlunoDados alunoDados, LivroDados livroDados, EmprestimoDados empDados, EmprestimoDados dev) throws SQLException {
 		
 		this.addAluno = new AddAlunoControle(fabricaTelas.getTelaAddAluno(), alunoDados );
 		this.addLivro = new AddLivroControle(fabricaTelas.getTelaAddLivro(), livroDados);
 		this.consulEmprestimoControle = new ConsulEmprestimoControle(fabricaTelas.getTelaConsultaEmprestimo(), fabricaDados.getEmpDados());
 		this.consultaLivroControle = new ConsultaLivrosControle(fabricaTelas.getTelaConsultaLivros(),fabricaDados.getLivroDados());
-		
+		this.realizaEmprestimoControle = new RealizarEmprestimoControle(fabricaTelas.getTelaRealizarEmprestimo(), fabricaDados.getEmpDados());
 		this.consultaAlunosControle = new ConsultaAlunosControle(fabricaTelas.getTelaConsultaAlunos(), fabricaDados.getAlunoDados());
-		this.menuPrincipalControle = new MenuPrincipalControle(fabricaTelas.getTelaMenuPrincipal(), consultaAlunosControle, addAluno, addLivro, consultaLivroControle, consulEmprestimoControle);
+		this.realizaDevolucaoControle = new RealizarDevolucaoControle(fabricaTelas.getTelaRealizarDevolucao(), fabricaDados.getEmpDados());
+		
+		this.menuPrincipalControle = new MenuPrincipalControle(fabricaTelas.getTelaMenuPrincipal(), consultaAlunosControle, addAluno, addLivro, consultaLivroControle, consulEmprestimoControle, realizaEmprestimoControle, realizaDevolucaoControle);
 		
 	}
 

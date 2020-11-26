@@ -1,5 +1,7 @@
 package sistema.modelos;
-import java.util.*;
+
+import java.sql.Date;
+
 public class Emprestimo {
 		
 	
@@ -12,10 +14,14 @@ public class Emprestimo {
 		
 		private String nome;
 		private String livro;
+		
 		private Date dt_emprestimo;
-		private Date dt_prevdevolucao;
+		private Date dt_prevdevolucao; 
 		private Date dt_devolucao;
-			
+		
+		
+		
+		
 		public String getNome() {
 			return nome;
 		}
@@ -28,6 +34,7 @@ public class Emprestimo {
 		public void setLivro(String livro) {
 			this.livro = livro;
 		}
+	
 		public Date getDt_emprestimo() {
 			return dt_emprestimo;
 		}
@@ -46,6 +53,9 @@ public class Emprestimo {
 		public void setDt_devolucao(Date dt_devolucao) {
 			this.dt_devolucao = dt_devolucao;
 		}
+		
+	
+		
 		@Override
 		public int hashCode() {
 			final int prime = 31;
@@ -53,11 +63,13 @@ public class Emprestimo {
 			result = prime * result + ((dt_devolucao == null) ? 0 : dt_devolucao.hashCode());
 			result = prime * result + ((dt_emprestimo == null) ? 0 : dt_emprestimo.hashCode());
 			result = prime * result + ((dt_prevdevolucao == null) ? 0 : dt_prevdevolucao.hashCode());
-			
 			result = prime * result + ((livro == null) ? 0 : livro.hashCode());
 			result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 			return result;
 		}
+	
+		
+		
 		@Override
 		public boolean equals(Object obj) {
 			if (this == obj)
@@ -97,9 +109,11 @@ public class Emprestimo {
 		}
 		@Override
 		public String toString() {
-			return "Emprestimo [ nome=" + nome + ", livro=" + livro + ", dt_emprestimo=" + dt_emprestimo
+			return "Emprestimo [nome=" + nome + ", livro=" + livro + ", dt_emprestimo=" + dt_emprestimo
 					+ ", dt_prevdevolucao=" + dt_prevdevolucao + ", dt_devolucao=" + dt_devolucao + "]";
 		}
+	
+		
 		
 		
 
